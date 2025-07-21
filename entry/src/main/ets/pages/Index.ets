@@ -1,5 +1,5 @@
 import web_webview from '@ohos.web.webview';
-import { BusinessError , systemDateTime ,  } from '@kit.BasicServicesKit';
+import { systemDateTime } from '@kit.BasicServicesKit';
 import { promptAction } from '@kit.ArkUI';
 @Entry
 @Component
@@ -17,11 +17,6 @@ struct Index {
   @State currentIndex: number = 0;
   //退出计时器
   @State currentTime: number = 0;
-
-  //刷新页面
-  // @State isRefreshing : boolean = false;
-  //
-  // @State isAtTop:boolean = true;
 
 
   onBackPress(): boolean | void {
@@ -52,47 +47,6 @@ struct Index {
       }
     }
   }
-
-  // 检测网页滚动位置
-  // private async detectScrollPosition() {
-  //     try {
-  //       // 更兼容的JS代码：尝试多种获取方式
-  //       const jsCode = `
-  //       (function() {
-  //         // 尝试多种文档对象
-  //         const doc = document.documentElement || document.body;
-  //         const body = document.body;
-  //
-  //         // 不同浏览器可能存储在不同属性中
-  //         const scrollTop = doc.scrollTop || body.scrollTop || window.pageYOffset || 0;
-  //         const scrollHeight = doc.scrollHeight || body.scrollHeight || 0;
-  //         const clientHeight = doc.clientHeight || body.clientHeight || 0;
-  //
-  //         return JSON.stringify({
-  //           scrollTop: Math.round(scrollTop),
-  //           scrollHeight: Math.round(scrollHeight),
-  //           clientHeight: Math.round(clientHeight)
-  //         });
-  //       })()
-  //     `;
-  //
-  //       // 执行JS并处理结果
-  //       const result = await this.controller.runJavaScript(jsCode);
-  //
-  //     interface ScrollInfo {
-  //       scrollTop: number;
-  //       scrollHeight: number;
-  //     }
-  //     if (result) {
-  //       const scrollInfo:ScrollInfo = JSON.parse(result);
-  //       // 滚动距离小于10px视为在顶部（容错处理）
-  //       this.isAtTop = scrollInfo.scrollTop < 10;
-  //       console.error(`网页滚动位置: ${scrollInfo.scrollTop}, 是否在顶部: ${this.isAtTop}`);
-  //     }
-  //   } catch (err) {
-  //     console.error(`检测滚动位置失败: ${err}`);
-  //   }
-  // }
 
 
   build() {
